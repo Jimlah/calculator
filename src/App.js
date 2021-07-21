@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { CalculatorContext } from "./component/CalculatorContext";
+import CalculatorWrapper from "./component/CalculatorWrapper";
+import "./tailwind.css";
 
 function App() {
+  const [accumulator, setAccumulator] = useState("");
+  const [total, setTotal] = useState(0);
+  const value = { accumulator, total, setAccumulator, setTotal };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CalculatorContext.Provider value={value}>
+      <div className="">
+        <CalculatorWrapper />
+      </div>
+    </CalculatorContext.Provider>
   );
 }
 
