@@ -32,6 +32,7 @@ export const handleAccumulatorChange = (value) => {
 };
 
 export const handleReset = () => {
+  newAccumulator = [];
   return "";
 };
 
